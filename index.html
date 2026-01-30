@@ -387,6 +387,79 @@
         color: var(--neon-green);
       }
 
+      .terminal-content {
+        display: flex;
+        gap: 30px;
+        align-items: center;
+      }
+
+      .terminal-text {
+        flex: 1;
+      }
+
+      .terminal-avatar {
+        flex-shrink: 0;
+        position: relative;
+      }
+
+      .terminal-avatar img {
+        width: 200px;
+        height: 200px;
+        object-fit: contain;
+        image-rendering: pixelated;
+        border: 3px solid var(--neon-cyan);
+        box-shadow:
+          0 0 15px var(--neon-cyan),
+          0 0 30px rgba(0, 255, 255, 0.3);
+        animation: neonPulse 2s ease-in-out infinite alternate;
+        background: transparent;
+      }
+
+      .terminal-avatar::before {
+        content: "";
+        position: absolute;
+        top: -8px;
+        left: -8px;
+        right: -8px;
+        bottom: -8px;
+        border: 2px solid var(--neon-magenta);
+        opacity: 0.5;
+        animation: borderGlitch 3s infinite;
+      }
+
+      @keyframes neonPulse {
+        0% {
+          box-shadow:
+            0 0 15px var(--neon-cyan),
+            0 0 30px rgba(0, 255, 255, 0.3);
+        }
+        100% {
+          box-shadow:
+            0 0 20px var(--neon-magenta),
+            0 0 40px rgba(255, 0, 255, 0.4);
+          border-color: var(--neon-magenta);
+        }
+      }
+
+      @keyframes borderGlitch {
+        0%, 90%, 100% {
+          transform: translate(0);
+          opacity: 0.5;
+        }
+        92% {
+          transform: translate(-2px, 2px);
+          opacity: 0.8;
+        }
+        94% {
+          transform: translate(2px, -2px);
+          opacity: 0.3;
+        }
+        96% {
+          transform: translate(-1px, -1px);
+          opacity: 0.6;
+        }
+      }
+
       .terminal-window {
         background: #0d0d0d;
         border-radius: 5px;
@@ -754,6 +827,20 @@
           padding: 20px;
         }
 
+        .terminal-content {
+          flex-direction: column;
+        }
+
+        .terminal-avatar {
+          order: -1;
+          margin-bottom: 20px;
+        }
+
+        .terminal-avatar img {
+          width: 150px;
+          height: 150px;
+        }
+
         .projects-grid {
           grid-template-columns: 1fr;
         }
@@ -796,33 +883,40 @@
             <div class="terminal-btn green"></div>
           </div>
           <div class="terminal-body">
-            <p>
-              <span class="prompt">user@dev:~$</span>
-              <span class="command">cat about.txt</span>
-            </p>
-            <p class="output">
-              > Desarrollador Full Stack con +5 años de experiencia<br />
-              > Apasionado por el código limpio y la arquitectura<br />
-              > Amante del pixel art y la estética retro<br />
-              > Siempre aprendiendo nuevas tecnologías
-            </p>
-            <br />
-            <p>
-              <span class="prompt">user@dev:~$</span>
-              <span class="command">cat location.txt</span>
-            </p>
-            <p class="output">> Sevilla, España 🌍</p>
-            <br />
-            <p>
-              <span class="prompt">user@dev:~$</span>
-              <span class="command">echo $STATUS</span>
-            </p>
-            <p class="output">> Disponible para nuevos proyectos ✓</p>
-            <br />
-            <p>
-              <span class="prompt">user@dev:~$</span>
-              <span class="command">_</span>
-            </p>
+            <div class="terminal-content">
+              <div class="terminal-text">
+                <p>
+                  <span class="prompt">user@dev:~$</span>
+                  <span class="command">cat about.txt</span>
+                </p>
+                <p class="output">
+                  > Desarrollador Full Stack con +5 años de experiencia<br />
+                  > Apasionado por el código limpio y la arquitectura<br />
+                  > Amante del pixel art y la estética retro<br />
+                  > Siempre aprendiendo nuevas tecnologías
+                </p>
+                <br />
+                <p>
+                  <span class="prompt">user@dev:~$</span>
+                  <span class="command">cat location.txt</span>
+                </p>
+                <p class="output">> Sevilla, España 🌍</p>
+                <br />
+                <p>
+                  <span class="prompt">user@dev:~$</span>
+                  <span class="command">echo $STATUS</span>
+                </p>
+                <p class="output">> Disponible para nuevos proyectos ✓</p>
+                <br />
+                <p>
+                  <span class="prompt">user@dev:~$</span>
+                  <span class="command">_</span>
+                </p>
+              </div>
+              <div class="terminal-avatar">
+                <img src="assets/avatar_black.png" alt="LuisaoDev Avatar" />
+              </div>
+            </div>
           </div>
         </div>
       </div>
