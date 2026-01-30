@@ -387,71 +387,56 @@
         color: var(--neon-green);
       }
 
-      .about-content {
+      .terminal-content {
         display: flex;
-        gap: 40px;
+        gap: 30px;
         align-items: center;
       }
 
-      .about-content .terminal-window {
+      .terminal-text {
         flex: 1;
       }
 
-      .about-image {
+      .terminal-avatar {
         flex-shrink: 0;
         position: relative;
       }
 
-      .about-image img {
-        width: 250px;
-        height: 250px;
+      .terminal-avatar img {
+        width: 200px;
+        height: 200px;
         object-fit: contain;
         image-rendering: pixelated;
-        border: 4px solid var(--neon-cyan);
+        border: 3px solid var(--neon-cyan);
         box-shadow:
-          0 0 20px var(--neon-cyan),
-          0 0 40px rgba(0, 255, 255, 0.3),
-          inset 0 0 20px rgba(0, 255, 255, 0.1);
+          0 0 15px var(--neon-cyan),
+          0 0 30px rgba(0, 255, 255, 0.3);
         animation: neonPulse 2s ease-in-out infinite alternate;
-        background: rgba(0, 0, 0, 0.5);
+        background: transparent;
       }
 
-      .about-image::before {
+      .terminal-avatar::before {
         content: "";
         position: absolute;
-        top: -10px;
-        left: -10px;
-        right: -10px;
-        bottom: -10px;
+        top: -8px;
+        left: -8px;
+        right: -8px;
+        bottom: -8px;
         border: 2px solid var(--neon-magenta);
         opacity: 0.5;
         animation: borderGlitch 3s infinite;
       }
 
-      .about-image::after {
-        content: "";
-        position: absolute;
-        top: 5px;
-        left: 5px;
-        right: -5px;
-        bottom: -5px;
-        border: 2px solid var(--neon-green);
-        opacity: 0.3;
-        z-index: -1;
-      }
-
       @keyframes neonPulse {
         0% {
           box-shadow:
-            0 0 20px var(--neon-cyan),
-            0 0 40px rgba(0, 255, 255, 0.3),
-            inset 0 0 20px rgba(0, 255, 255, 0.1);
+            0 0 15px var(--neon-cyan),
+            0 0 30px rgba(0, 255, 255, 0.3);
         }
         100% {
           box-shadow:
-            0 0 30px var(--neon-magenta),
-            0 0 60px rgba(255, 0, 255, 0.4),
-            inset 0 0 30px rgba(255, 0, 255, 0.1);
+            0 0 20px var(--neon-magenta),
+            0 0 40px rgba(255, 0, 255, 0.4);
           border-color: var(--neon-magenta);
         }
       }
@@ -462,15 +447,15 @@
           opacity: 0.5;
         }
         92% {
-          transform: translate(-3px, 3px);
+          transform: translate(-2px, 2px);
           opacity: 0.8;
         }
         94% {
-          transform: translate(3px, -3px);
+          transform: translate(2px, -2px);
           opacity: 0.3;
         }
         96% {
-          transform: translate(-2px, -2px);
+          transform: translate(-1px, -1px);
           opacity: 0.6;
         }
       }
@@ -842,18 +827,18 @@
           padding: 20px;
         }
 
-        .about-content {
+        .terminal-content {
           flex-direction: column;
         }
 
-        .about-image {
+        .terminal-avatar {
           order: -1;
           margin-bottom: 20px;
         }
 
-        .about-image img {
-          width: 180px;
-          height: 180px;
+        .terminal-avatar img {
+          width: 150px;
+          height: 150px;
         }
 
         .projects-grid {
@@ -891,45 +876,47 @@
     <section id="about">
       <h2 class="section-title">ABOUT_ME</h2>
       <div class="about">
-        <div class="about-content">
-          <div class="terminal-window">
-            <div class="terminal-header">
-              <div class="terminal-btn red"></div>
-              <div class="terminal-btn yellow"></div>
-              <div class="terminal-btn green"></div>
-            </div>
-            <div class="terminal-body">
-              <p>
-                <span class="prompt">user@dev:~$</span>
-                <span class="command">cat about.txt</span>
-              </p>
-              <p class="output">
-                > Desarrollador Full Stack con +5 años de experiencia<br />
-                > Apasionado por el código limpio y la arquitectura<br />
-                > Amante del pixel art y la estética retro<br />
-                > Siempre aprendiendo nuevas tecnologías
-              </p>
-              <br />
-              <p>
-                <span class="prompt">user@dev:~$</span>
-                <span class="command">cat location.txt</span>
-              </p>
-              <p class="output">> Sevilla, España 🌍</p>
-              <br />
-              <p>
-                <span class="prompt">user@dev:~$</span>
-                <span class="command">echo $STATUS</span>
-              </p>
-              <p class="output">> Disponible para nuevos proyectos ✓</p>
-              <br />
-              <p>
-                <span class="prompt">user@dev:~$</span>
-                <span class="command">_</span>
-              </p>
-            </div>
+        <div class="terminal-window">
+          <div class="terminal-header">
+            <div class="terminal-btn red"></div>
+            <div class="terminal-btn yellow"></div>
+            <div class="terminal-btn green"></div>
           </div>
-          <div class="about-image">
-            <img src="assets/avatar.png" alt="LuisaoDev Avatar" />
+          <div class="terminal-body">
+            <div class="terminal-content">
+              <div class="terminal-text">
+                <p>
+                  <span class="prompt">user@dev:~$</span>
+                  <span class="command">cat about.txt</span>
+                </p>
+                <p class="output">
+                  > Desarrollador Full Stack con +5 años de experiencia<br />
+                  > Apasionado por el código limpio y la arquitectura<br />
+                  > Amante del pixel art y la estética retro<br />
+                  > Siempre aprendiendo nuevas tecnologías
+                </p>
+                <br />
+                <p>
+                  <span class="prompt">user@dev:~$</span>
+                  <span class="command">cat location.txt</span>
+                </p>
+                <p class="output">> Sevilla, España 🌍</p>
+                <br />
+                <p>
+                  <span class="prompt">user@dev:~$</span>
+                  <span class="command">echo $STATUS</span>
+                </p>
+                <p class="output">> Disponible para nuevos proyectos ✓</p>
+                <br />
+                <p>
+                  <span class="prompt">user@dev:~$</span>
+                  <span class="command">_</span>
+                </p>
+              </div>
+              <div class="terminal-avatar">
+                <img src="assets/avatar.png" alt="LuisaoDev Avatar" />
+              </div>
+            </div>
           </div>
         </div>
       </div>
